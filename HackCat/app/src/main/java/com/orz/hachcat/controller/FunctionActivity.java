@@ -66,7 +66,9 @@ import java.util.ArrayList;
             btnUpload.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    uploadImage(imageView);
+                    if (imageView != null) {
+                        uploadImage(imageView);
+                    }
                 }
             });
             voice_button.setOnClickListener(new View.OnClickListener() {
@@ -120,28 +122,33 @@ import java.util.ArrayList;
         }
 
         public void uploadImage(View view) {
-            imageRef = storageRef.child("images/" + selectedImage.getLastPathSegment());
-            Log.d("first select", "first select");
-            uploadTask = imageRef.putFile(selectedImage);
-            Log.d("second upload", "second upload");
-            uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                    double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                }
-            });
-            uploadTask.addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    // Handle unsuccessful uploads
-                    Toast.makeText(com.orz.hachcat.controller.FunctionActivity.this, "Error in uploading!", Toast.LENGTH_SHORT).show();
-                }
-            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            if (selectedImage != null) {
+                imageRef = storageRef.child("images/" + selectedImage.getLastPathSegment());
+                Log.d("first select", "first select");
+                uploadTask = imageRef.putFile(selectedImage);
+                Log.d("second upload", "second upload");
+                uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                    }
+                });
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        Toast.makeText(com.orz.hachcat.controller.FunctionActivity.this, "Error in uploading!", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                }
-            });
+                    }
+                });
+            } else {
+                Toast.makeText(FunctionActivity.this,
+                        "please select file first", Toast.LENGTH_SHORT).show();
+            }
         }
 
 
