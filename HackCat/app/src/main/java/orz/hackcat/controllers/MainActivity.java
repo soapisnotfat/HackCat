@@ -1,39 +1,32 @@
 package orz.hackcat;
 
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.provider.OpenableColumns;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.error.VolleyError;
-import com.android.volley.request.SimpleMultiPartRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import orz.hackcat.controllers.MyApplication;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private Button btnChoose, btnUpload;
-    private ProgressBar progressBar;
-
-    public static String BASE_URL = "http://192.168.1.100/AndroidUploadImage/upload.php";
-    static final int PICK_IMAGE_REQUEST = 1;
-    String filePath;
+    private static final int SELECT_PHOTO = 100;
+    Uri selectedImage;
+    FirebaseStorage storage;
+    StorageReference storageRef, imageRef;
+    UploadTask uploadTask;
 
 
     @Override
@@ -44,93 +37,67 @@ public class MainActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imageView);
         btnChoose = (Button) findViewById(R.id.button_choose);
         btnUpload = (Button) findViewById(R.id.button_upload);
+        storage = FirebaseStorage.getInstance();
+        storageRef = storage.getReference();
+
 
         btnChoose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imageBrowse();
+                imageBrowse(imageView);
             }
         });
 
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (filePath != null) {
-                    imageUpload(filePath);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Image not selected!", Toast.LENGTH_LONG).show();
+                uploadImage(imageView);
+            }
+        });
+    }
+
+    public void imageBrowse(View view) {
+        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+        photoPickerIntent.setType("image/*");
+        startActivityForResult(photoPickerIntent, SELECT_PHOTO);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+        switch (requestCode) {
+            case SELECT_PHOTO:
+                if (resultCode == RESULT_OK) {
+                    selectedImage = imageReturnedIntent.getData();
+                    imageView.setImageURI(selectedImage);
                 }
-
-            }
-        });
-    }
-
-    private void imageBrowse() {
-        Intent galleryIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        // Start the Intent
-        startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST);
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-
-            if(requestCode == PICK_IMAGE_REQUEST){
-                Uri picUri = data.getData();
-
-                filePath = getPath(picUri);
-
-                Log.d("picUri", picUri.toString());
-                Log.d("filePath", filePath);
-
-                imageView.setImageURI(picUri);
-
-            }
-
         }
-
     }
 
-    private void imageUpload(final String imagePath) {
-
-        SimpleMultiPartRequest smr = new SimpleMultiPartRequest(Request.Method.POST, BASE_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d("Response", response);
-                        try {
-                            JSONObject jObj = new JSONObject(response);
-                            String message = jObj.getString("message");
-
-                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-
-                        } catch (JSONException e) {
-                            // JSON error
-                            e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                }, new Response.ErrorListener() {
+    public void uploadImage(View view) {
+        imageRef = storageRef.child("images/" + selectedImage.getLastPathSegment());
+        Log.d("first select", "first select");
+        uploadTask = imageRef.putFile(selectedImage);
+        Log.d("second upload", "second upload");
+        uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                //sets and increments value of progressbar
             }
         });
+        // Register observers to listen for when the download is done or if it fails
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+                Toast.makeText(MainActivity.this, "Error in uploading!", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-        smr.addFile("image", imagePath);
-        MyApplication.getInstance().addToRequestQueue(smr);
-
-    }
-
-    private String getPath(Uri contentUri) {
-        String[] proj = { MediaStore.Images.Media.DATA };
-        CursorLoader loader = new CursorLoader(getApplicationContext(), contentUri, proj, null, null, null);
-        Cursor cursor = loader.loadInBackground();
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        String result = cursor.getString(column_index);
-        cursor.close();
-        return result;
+            }
+        });
     }
 }
