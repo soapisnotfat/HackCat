@@ -15,7 +15,7 @@
         android:layout_margin="20dp"
         android:background="@color/colorAccent"
         android:padding="10dp"
-        android:text="Browse Image"
+        android:text="Start"
         android:textColor="#fff" />
 
 </LinearLayout>
