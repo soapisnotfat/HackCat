@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "265666890555",
+    "firebase_url": "https://hackcat-82919.firebaseio.com",
+    "project_id": "hackcat-82919",
+    "storage_bucket": "hackcat-82919.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265666890555:android:79892051acb3c08f",
+        "android_client_info": {
+          "package_name": "orz.hackcat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265666890555-bpq8lnn6koaiud4tvtcct5g2i8jcrej3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "orz.hackcat",
+            "certificate_hash": "21dfad7ea78c91c6d77c9c76f529f7da33d6c445"
+          }
+        },
+        {
+          "client_id": "265666890555-cj2n25dmolr0sf2jupc1ntd54ijsjnvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQZ8fHtcAUTvsrvkYaH5nMcvGMqsfdcVg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265666890555-cj2n25dmolr0sf2jupc1ntd54ijsjnvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
