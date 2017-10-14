@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         go_function = (Button) findViewById(R.id.go_function);
-        somehow = (TextView) findViewById(R.id.)
+        somehow = (TextView) findViewById(R.id.main_tv);
+        somehow.setText("假装这有一个简介");
         go_function.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

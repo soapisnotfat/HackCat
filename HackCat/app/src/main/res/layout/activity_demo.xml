@@ -19,7 +19,7 @@
 
     </RelativeLayout>
 
-    <com.example.library.SwipeBackLayout
+    <com.liuguangqiang.swipeback.SwipeBackLayout
         android:id="@+id/swipe_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -42,7 +42,7 @@
         </RelativeLayout>
 
 
-    </com.example.library.SwipeBackLayout>
+    </com.liuguangqiang.swipeback.SwipeBackLayout>
 
     <ProgressBar
         android:id="@+id/progressBar4"
