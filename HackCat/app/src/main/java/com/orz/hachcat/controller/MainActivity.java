@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                     selectedImage = data.getData();
                     imageView.setImageURI(selectedImage);
+                    break;
                 }
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK && null != data) {
@@ -112,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 
                     txtText.setText(text.get(0));
+                    break;
                 }
             }
         }
@@ -126,10 +128,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                 double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                //sets and increments value of progressbar
             }
         });
-        // Register observers to listen for when the download is done or if it fails
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
