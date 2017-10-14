@@ -2,7 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/bg_main"
+    android:weightSum="1">
     <!--android:paddingBottom="@dimen/activity_vertical_margin"-->
     <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
     <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
@@ -10,39 +12,61 @@
     <!--tools:context=".MainActivity"-->
     <!--android:weightSum="1">-->
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="356dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal"
+        android:text="TextView"
+        android:layout_weight="0.40" />
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="343dp"
-        android:layout_height="150dp"
+        android:layout_width="342dp"
+        android:layout_height="238dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp"
-        android:layout_weight="0.33"
         android:background="@drawable/border"
         android:padding="5dp" />
 
-    <Button
-        android:id="@+id/btn_demo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:text="Choose File" />
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-    <Button
-        android:id="@+id/btn_common"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upload File" />
+        <Button
+            android:id="@+id/button_choose"
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:background="#E3F2FD"
+            android:orientation="horizontal"
+            android:text="Choose File" />
 
-    <Button
-        android:id="@+id/btn_ListView"
-        android:layout_width="113dp"
-        android:layout_height="wrap_content"
-        android:text="Record Message" />
+        <Button
+            android:id="@+id/button_upload"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:background="#E3F2FD"
+            android:orientation="horizontal"
+            android:text="Upload File" />
 
-    <Button
-        android:id="@+id/btn_viewpager"
-        android:layout_width="117dp"
-        android:layout_height="wrap_content"
-        android:text="Download PDF" />
+        <Button
+            android:id="@+id/voice_button"
+            android:layout_width="86dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.27"
+            android:background="#E3F2FD"
+            android:orientation="horizontal"
+            android:text="Record Message" />
+
+        <Button
+            android:id="@+id/pdf_button"
+            android:layout_width="93dp"
+            android:layout_height="wrap_content"
+            android:background="#E3F2FD"
+            android:text="Download PDF" />
+    </LinearLayout>
 
 
 </LinearLayout>

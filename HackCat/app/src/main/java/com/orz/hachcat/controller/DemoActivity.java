@@ -1,6 +1,7 @@
 package com.orz.hachcat.controller;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 
@@ -31,7 +32,12 @@ public class DemoActivity extends Activity {
         swipeBackLayout.setOnPullToBackListener(new SwipeBackLayout.SwipeBackListener() {
             @Override
             public void onViewPositionChanged(float fractionAnchor, float fractionScreen) {
-                progressBar.setProgress((int) (progressBar.getMax() * fractionAnchor));
+                float progress =  progressBar.getMax() * fractionAnchor;
+                progressBar.setProgress((int) progress);
+                if (progress == progressBar.getMax()) {
+                    Intent k = new Intent(DemoActivity.this, FunctionActivity.class);
+                    startActivity(k);
+                }
             }
         });
     }
