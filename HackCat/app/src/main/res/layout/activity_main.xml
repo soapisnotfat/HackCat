@@ -7,17 +7,8 @@
     android:padding="16dp"
     tools:context="org.snowcorp.imageupload.MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="10dp"
-        android:text="Upload Image using Volley"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <Button
-        android:id="@+id/button_choose"
+        android:id="@+id/go_function"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -26,36 +17,5 @@
         android:padding="10dp"
         android:text="Browse Image"
         android:textColor="#fff" />
-
-    <Button
-        android:id="@+id/voice_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Voice" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="20dp"
-        android:background="@drawable/border"
-        android:padding="5dp" />
-
-    <Button
-        android:id="@+id/button_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="20dp"
-        android:background="@color/colorAccent"
-        android:text="upload image"
-        android:textColor="#fff" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 
 </LinearLayout>

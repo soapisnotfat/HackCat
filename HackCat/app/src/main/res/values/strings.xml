@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HachCat</string>
+    <string name="title_activity_function">FunctionActivity</string>
 </resources>
