@@ -1,4 +1,4 @@
-package orz.hackcat;
+package orz.hackcat.controllers.;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,6 +17,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import orz.hackcat.R;
 
 public class MainActivity extends AppCompatActivity {
 
