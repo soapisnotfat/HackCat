@@ -52,14 +52,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FunctionActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FunctionActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/orz/hachcat/controller/FunctionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1995">
-              <caret line="150" column="13" selection-start-line="150" selection-start-column="13" selection-end-line="150" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="345">
+              <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_demo.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="activity_demo.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_demo.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+            <state relative-caret-position="420">
+              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -3130,11 +3128,11 @@
         <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/activity_demo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/orz/hachcat/controller/DemoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_all.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_demo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_function.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/orz/hachcat/controller/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/orz/hachcat/controller/FunctionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_demo.xml" />
       </list>
     </option>
   </component>
@@ -3761,9 +3759,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4069,17 +4065,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_demo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_function.xml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -4112,12 +4097,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/orz/hachcat/controller/FunctionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="150" column="13" selection-start-line="150" selection-start-column="13" selection-end-line="150" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_demo.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>
