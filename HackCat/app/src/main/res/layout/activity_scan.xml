@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="org.komamitsu.android_ocrsample.MainActivity">
+
+
+    <Button
+        android:id="@+id/choose_from_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="choose_from_gallery"
+        tools:context=".MainActivity" />
+
+    <Button
+        android:id="@+id/take_a_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/choose_from_gallery"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="take_a_photo"
+        tools:context=".MainActivity" />
+
+
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/detected_text"
+        android:background="#EEEEEE"
+        android:scrollbars="vertical"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/take_a_photo"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

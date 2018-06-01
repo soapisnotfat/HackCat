@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HackCat</string>
+    <string name="title_activity_function">FunctionActivity</string>
+</resources>
